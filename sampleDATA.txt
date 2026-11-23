@@ -1,0 +1,61 @@
+CaseNumber,Bureau,CaseType,TylerStatus,AssignedSpecialistID,CoveringSpecialistID,DateReported,DecisionDate,CloseDate,Outcome
+ER-2026-0001,OS,Disciplinary action,Closed - Withdrawn,SPEC02,,2026-02-06,2026-09-12,2026-09-23,
+ER-2025-0002,OS,Grievance,Closed - Final,SPEC04,,2025-03-20,2025-06-05,2025-06-23,
+ER-2025-0003,OS,Grievance,Evidence Gathering,SPEC02,,2025-04-19,,,
+ER-2025-0004,ITA,Adverse action,On Hold - Legal Review,SPEC03,,2025-03-21,,,
+ER-2026-0005,EDA,Investigation,Closed - Final,SPEC02,,2026-02-03,2026-09-16,2026-10-12,Reprimand
+ER-2025-0006,OS,Investigation,Awaiting Decision,SPEC03,SPEC05,2025-11-12,,,
+ER-2025-0007,OS,Grievance,Awaiting Decision,,,2025-10-23,,,
+ER-2026-0008,BIS,Grievance,Under Review,SPEC01,,2026-09-04,,,
+ER-2025-0009,OS,Adverse action,Appeal Window Open,SPEC03,,2025-10-21,2026-09-30,,Removal
+ER-2026-0010,NTIA,Adverse action,New Intake,SPEC01,,2026-02-14,,,
+ER-2025-0011,ITA,Adverse action,Proposal Drafted,SPEC03,,2025-10-22,,,
+ER-2025-0012,NTIA,Adverse action,Closed - Final,SPEC01,,2025-12-17,2026-02-01,2026-02-26,Removal
+ER-2025-0013,BIS,Disciplinary action,Closed - Withdrawn,SPEC03,SPEC05,2025-04-13,2026-01-23,2026-02-22,Settled
+ER-2026-0014,EDA,Adverse action,Proposal Drafted,SPEC02,,2026-06-25,,,
+ER-2025-0015,ITA,Grievance,Appeal Window Open,SPEC04,,2025-03-27,2026-10-02,,Reprimand
+ER-2026-0016,OS,Disciplinary action,Under Review,SPEC02,,2026-06-11,,,
+ER-2025-0017,ITA,Investigation,Awaiting Decision,SPEC04,,2025-03-14,,,
+ER-2025-0018,NTIA,Disciplinary action,On Hold - Legal Review,SPEC03,,2025-05-14,,,
+ER-2025-0019,BIS,Investigation,Awaiting Decision,SPEC01,,2025-08-07,,,
+ER-2025-0020,BIS,Grievance,New Intake,SPEC01,,2025-06-13,,,
+ER-2026-0021,EDA,Adverse action,Awaiting Decision,SPEC05,,2026-06-02,,,
+ER-2025-0022,EDA,Grievance,Closed - Final,SPEC01,,2025-07-02,2026-02-02,2026-02-26,Reprimand
+ER-2026-0023,MBDA,Adverse action,Awaiting Decision,,,2026-08-26,,,
+ER-2025-0024,NTIA,Adverse action,Closed - Final,SPEC05,,2025-07-16,2026-05-12,2026-06-13,No action
+ER-2025-0025,NTIA,Adverse action,Evidence Gathering,SPEC04,,2025-12-30,,,
+ER-2026-0026,ITA,Grievance,Closed - Withdrawn,SPEC02,,2026-07-14,2026-09-25,2026-10-01,No action
+ER-2026-0027,MBDA,Adverse action,Closed - Final,SPEC01,,2026-04-03,2026-10-11,2026-10-19,Reprimand
+ER-2026-0028,EDA,Disciplinary action,Closed - Withdrawn,SPEC05,,2026-09-03,2026-11-03,2026-11-17,Suspension
+ER-2025-0029,MBDA,Grievance,Awaiting Decision,SPEC02,,2025-07-18,,,
+ER-2025-0030,,Disciplinary action,Decision Issued,SPEC04,,2025-01-09,2026-11-07,,Other
+ER-2025-0031,OS,Disciplinary action,New Intake,SPEC03,,2025-09-28,,,
+ER-2025-0032,MBDA,Adverse action,Decision Issued,SPEC02,,2025-08-12,2026-11-15,,Settled
+ER-2026-0033,OS,Grievance,Awaiting Decision,SPEC05,,2026-09-24,,,
+ER-2025-0034,ITA,Adverse action,Closed - Final,SPEC04,SPEC02,2025-07-05,2026-02-25,2026-03-05,Settled
+ER-2026-0035,ITA,Disciplinary action,Closed - Withdrawn,SPEC04,,2026-02-16,2026-09-12,2026-10-22,Other
+ER-2026-0036,BIS,Investigation,Closed - Final,SPEC03,,2026-05-04,2026-06-17,2026-07-26,Other
+ER-2026-0037,OS,Performance,Decision Issued,SPEC05,,2026-09-24,2026-09-25,,Reprimand
+ER-2026-0038,OS,Grievance,Under Review,SPEC01,,2026-05-08,,,
+ER-2025-0039,OS,Investigation,New Intake,SPEC02,,2025-04-10,,,
+ER-2025-0040,NTIA,Investigation,Awaiting Decision,SPEC05,,2025-03-27,,,
+ER-2026-0041,BIS,Performance,Closed - Final,SPEC04,,2026-02-16,2026-08-30,2026-09-23,Removal
+ER-2025-0042,OS,Disciplinary action,Awaiting Decision,,,2025-08-02,,,
+ER-2025-0043,BIS,Grievance,Closed - Final,SPEC03,,2025-06-14,2026-01-08,2026-01-17,Removal
+ER-2025-0044,BIS,Performance,Proposal Drafted,SPEC05,,2025-08-23,,,
+ER-2024-0045,OS,Grievance,Closed - Final,SPEC05,,2024-12-31,2025-03-24,2025-04-06,Reprimand
+ER-2025-0046,NTIA,Disciplinary action,Closed - Final,SPEC02,,2025-04-27,2025-09-11,2025-10-07,Other
+ER-2025-0047,MBDA,Performance,Awaiting Decision,SPEC03,,2025-07-02,,,
+ER-2026-0048,EDA,Investigation,Decision Issued,SPEC01,,2026-09-30,2026-11-14,,Other
+ER-2025-0049,MBDA,Investigation,Closed - Withdrawn,SPEC05,SPEC03,2025-09-03,2025-11-10,2025-11-24,Reprimand
+ER-2025-0050,MBDA,Performance,Decision Issued,SPEC02,,2025-04-28,2026-11-13,,Removal
+ER-2026-0051,NTIA,Adverse action,Decision Issued,SPEC01,,2026-03-04,2026-11-12,,Suspension
+ER-2025-0052,BIS,Adverse action,Closed - Withdrawn,SPEC01,,2025-09-18,2026-04-06,2026-05-07,Other
+ER-2026-0053,EDA,Adverse action,Decision Issued,SPEC01,,2026-06-04,2026-11-11,,Suspension
+ER-2026-0054,EDA,Investigation,Closed - Final,SPEC02,,2026-01-06,2026-05-14,2026-06-13,Removal
+ER-2025-0055,EDA,Disciplinary action,Appeal Window Open,SPEC05,,2025-11-20,2026-09-06,,Reprimand
+ER-2026-0056,EDA,Disciplinary action,New Intake,SPEC05,SPEC04,2026-05-16,,,
+ER-2025-0057,ITA,Grievance,Appeal Window Open,SPEC03,,2025-11-26,2026-10-03,,No action
+ER-2026-0058,EDA,Adverse action,Decision Issued,SPEC04,,2026-09-30,2026-10-01,,Removal
+ER-2025-0059,OS,Investigation,Under Review,SPEC03,,2025-01-03,,,
+ER-2026-0060,MBDA,Performance,Closed - Final,SPEC04,,2026-01-02,2026-07-02,2026-08-11,Suspension
