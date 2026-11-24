@@ -1,0 +1,100 @@
+﻿"Title","Story ID","Epic","User Story","Acceptance Criteria","Role","Priority","Status","Needs Decision","Related Open Questions","Mockup Source","Release","Assigned To","Sprint","Notes"
+"ER-DAT-01 – Copy Tyler case data on a schedule","ER-DAT-01","Tyler data feed","As a member of ER/LR or leadership, I want case data copied from Tyler on a schedule, so that every report starts from one current source.","1. Given the feed is set up, when the scheduled time arrives, then case data is copied from Tyler into the reporting dataset with no one exporting it by hand.
+2. The data refreshes at least as often as agreed (nightly is assumed; ER-OQ-04).
+3. Every report page and email shows when the data was last refreshed.
+4. Given a refresh fails, then the previous data stays available, reports show that the data is out of date, and the named owner is notified.
+5. How the data reaches the dataset (direct connection, scheduled export to a locked library, or manual export) follows ER-OQ-01.","System","Medium","Blocked","Yes","ER-OQ-01, ER-OQ-04","Solution overview tab (nightly feed); Developer notes tab","","","",""
+"ER-DAT-02 – Remove names and case notes before reporting","ER-DAT-02","Tyler data feed","As an ER/LR Program Manager, I want employee names and case notes removed before data reaches any report, so that reports cannot reveal who is involved.","1. Given data is prepared from Tyler, then employee names, case notes, and attached documents are not loaded into the reporting dataset (field list per ER-OQ-05).
+2. No report page, filter, export, or email shows an employee name.
+3. A case is identified by its Tyler case number only.
+4. Given a new Tyler field is added later, then it stays out of the dataset until someone approves loading it.
+5. A check before launch confirms that no name or note fields exist in the dataset.","System; ER/LR Program Manager","Medium","Backlog","No","ER-OQ-05, ER-OQ-19","Solution overview tab (step 2); every report page (no names)","","","",""
+"ER-DAT-03 – Calculate case age the same way everywhere","ER-DAT-03","Tyler data feed","As a member of leadership, I want case age calculated one way, so that the same case shows the same age on every page and email.","1. Given a case is open, then its age is the number of days from the date reported to today; for a closed case, to the close date.
+2. Days are counted as agreed (calendar days are assumed; ER-OQ-10).
+3. ""Over 180 days"" uses this age. 180 is a sample threshold kept as a maintained value, not fixed inside the report.
+4. Age is recalculated at every refresh and matches on the dashboard, bureau view, My cases, and emails.","System","Medium","Ready for Demo","No","ER-OQ-10","Overview page > Average age and Over 180 days cards","","","",""
+"ER-DAT-04 – Match each case to its bureau, type, and specialist","ER-DAT-04","Tyler data feed","As an ER/LR specialist, I want every case matched to its bureau, case type, and assigned specialist, so that My cases and the bureau views are correct.","1. Given a case is loaded, then it has a bureau (office), case type, assigned specialist, and stage taken from Tyler.
+2. Given a case is missing its office, or its specialist cannot be matched to a user, then it appears in a data-check list (ER-SPC-04) and is counted as ""Unassigned""; it is not dropped.
+3. The link from a Tyler specialist to a user sign-in is kept as maintainable data (ER-OQ-11).
+4. Every case counted on the dashboard is counted once.","System; ER/LR specialist","Medium","Backlog","No","ER-OQ-11, ER-OQ-12","My cases page > flags; Team workload page","","","",""
+"ER-DAT-05 – Use a locked library if Tyler cannot connect directly","ER-DAT-05","Tyler data feed","As an ER/LR Program Manager, I want a scheduled Tyler export saved in a locked library if a direct connection is not possible, so that reporting can still run.","1. Given a direct connection is not possible, then a scheduled Tyler export is saved in the Tyler Exports library and the newest file is read at each refresh.
+2. Only the ER/LR staff group can open the library; anyone else sees ""You need permission to access this library.""
+3. Each file carries the Highly Confidential label (ER-OQ-21).
+4. Files are kept and deleted under records rules (ER-OQ-21).
+5. This path is used only if the direct path is not available (ER-OQ-01).","System; ER/LR Program Manager; ER/LR specialist","Medium","Blocked","Yes","ER-OQ-01, ER-OQ-21","Tyler Exports tab (access denied as CHCO)","","","",""
+"ER-STG-01 – Map Tyler statuses to standard stages","ER-STG-01","Standard case stages","As an ER/LR Program Manager, I want each Tyler status mapped to one standard stage in a list I maintain, so that everyone counts cases the same way.","1. Given I open the Stage Mapping list, then I see each Tyler status, the standard stage it counts as, a sort order, and a note.
+2. The starting stages are Intake, Review, Decision, Challenge period, and Closed (proposal; ER-OQ-07).
+3. Given a Tyler status has no mapping, then its cases show as ""Unmapped"" and the status is listed for me to fix.
+4. Given I change the list, then reports use the new mapping at the next refresh, with no developer needed.
+5. Closed cases are not counted as active.","ER/LR Program Manager","Medium","Ready for Demo","No","ER-OQ-07","Stage Mapping tab (SharePoint list)","","","","Built in prototype with sample mapping; Unmapped shows on Overview."
+"ER-STG-02 – Control who can edit the stages","ER-STG-02","Standard case stages","As an ER/LR Program Manager, I want only the right people to change the stage list, so that the stages stay consistent.","1. Given I am the Program Manager, then I can edit the Stage Mapping list (""You can edit this list"").
+2. Given I am a specialist, then I can view the list but not edit it (""View only"").
+3. Anyone else cannot open the list.
+4. Every change records who changed what and when (ER-ACC-04).","ER/LR Program Manager; ER/LR specialist","Medium","Backlog","No","ER-OQ-07","Stage Mapping tab as Program Manager and as specialist","","","",""
+"ER-STG-03 – Show the challenge period as its own stage","ER-STG-03","Standard case stages","As a member of leadership, I want the challenge period shown as its own stage, so that I can see decided cases that are waiting to close.","1. Given a decision has been issued, then the case shows as ""Challenge period"" until the window ends.
+2. The window length and start date for each case type follow ER-OQ-08. Challenge period is not a Tyler status, so it is worked out from the decision date.
+3. A case shows as Closed only after the specialist closes it in Tyler.
+4. Decided cases waiting to close can be listed (ER-OUT-02).
+5. Until the rule is confirmed, the stage is a placeholder flagged ""to define"".","CHCO; ER/LR Program Manager; ER/LR specialist","Medium","Blocked","Yes","ER-OQ-08","Stage Mapping tab (flagged row); Overview page > stage bars","","","","Prototype uses a placeholder window (Challenge_Window table)."
+"ER-STG-04 – Make the stages work for every case type","ER-STG-04","Standard case stages","As an ER/LR Program Manager, I want the stages to work for adverse actions, investigations, performance actions, and grievances, so that every case rolls up the same way.","1. Given the workflows for adverse actions, investigations, performance actions, and grievances are mapped, then the stage list is confirmed for each.
+2. Until then, the stages apply to disciplinary actions and other types are flagged ""stages to confirm"".
+3. The stage list may differ by case type if needed, and is held as data in the Stage Mapping list.
+4. Cases of every type roll up into the same standard stage names on the dashboard.","ER/LR Program Manager","Medium","Blocked","No","ER-OQ-09","Not shown in the mockup (only disciplinary actions are mapped)","","","",""
+"ER-DSH-01 – Summary cards","ER-DSH-01","Leadership dashboard","As a member of leadership, I want summary counts on one page, so that I can answer ""how many cases are active"" at a glance.","1. Given I open the Overview page, then I see active cases, average age in days, active cases over 180 days, and cases closed this fiscal year.
+2. All counts follow the filters on the page.
+3. The page shows when the data was last refreshed (ER-DAT-01).
+4. ""Active"" counts only cases that are not closed (ER-STG-01), and the first count is confirmed against Tyler (ER-OQ-26).
+5. The counts match the charts and table on the same page.","CHCO; ER/LR Program Manager","Medium","Ready for Demo","No","ER-OQ-04, ER-OQ-10, ER-OQ-26","ER/LR Case Reporting tab > Overview page > cards","","","",""
+"ER-DSH-02 – See cases by stage","ER-DSH-02","Leadership dashboard","As a member of leadership, I want to see how many active cases are in each stage, so that I know where cases are in the process.","1. Given I am on the Overview page, then I see a bar for each standard stage (Intake, Review, Decision, Challenge period) with its count of active cases.
+2. Given I click a stage, then the whole page filters to that stage and the other stage bars dim.
+3. Given I click the same stage again, then the filter clears.
+4. Stage names match the Stage Mapping list.","CHCO; ER/LR Program Manager","Medium","Ready for Demo","No","","Overview page > Active cases by stage","","","",""
+"ER-DSH-03 – See cases by bureau and by case type","ER-DSH-03","Leadership dashboard","As a member of leadership, I want to see active cases by bureau and by case type, so that I can see where the work is.","1. Given I am on the Overview page, then I see active cases by bureau and by case type.
+2. Given I click a bureau or a case type, then the page filters to it, the selected bar stays full, and the others dim.
+3. The bureau and type bars respond to the stage filter, and the stage bars respond to the bureau and type filters.
+4. The bureaus and types shown come from the data, not a fixed list (bureaus in scope per ER-OQ-15).","CHCO; ER/LR Program Manager","Medium","Ready for Demo","No","ER-OQ-15","Overview page > Active cases by bureau; by type","","","",""
+"ER-DSH-04 – Filter and reset","ER-DSH-04","Leadership dashboard","As a member of leadership or ER/LR, I want to filter the page and reset it in one click, so that I can look at one slice and get back.","1. Given I use the Bureau or Case type filter, then the page shows ""Showing N of M active cases (filtered).""
+2. Given I choose Reset to default, then every filter and every click on a chart clears.
+3. Filters stay in place as I look at the cards, charts, and table on this page.","CHCO; ER/LR Program Manager; ER/LR specialist","Medium","Ready for Demo","No","","Overview page > Bureau and Case type filters; Reset to default","","","",""
+"ER-DSH-05 – See the oldest cases","ER-DSH-05","Leadership dashboard","As a member of leadership or ER/LR, I want the oldest open cases listed, so that I can see which ones need attention.","1. Given no filter is set, then the table is titled ""Oldest active cases"" and lists case number, case type, bureau, stage, and days open, oldest first.
+2. Given a filter is set, then the title reads ""Matching cases, oldest first"" and the table lists only matching cases.
+3. No employee name or case note appears in the table.
+4. The table shows a limited number of rows (8 in the mockup), and the total count stays visible on the cards.","CHCO; ER/LR Program Manager; ER/LR specialist","Medium","Ready for Demo","No","","Overview page > table","","","","Sort table by Days open (descending) before demo."
+"ER-BUR-01 – Limit a bureau contact to their own bureau","ER-BUR-01","Bureau view","As a bureau contact, I want to see only my own bureau's cases, so that other bureaus' cases stay confidential.","1. Given I am signed in as a bureau contact, then every number and list shows only cases for my bureau.
+2. I cannot choose another bureau.
+3. The limit is enforced in the data, not only hidden on the page.
+4. Whether one contact can cover several bureaus follows ER-OQ-16.
+5. Bureaus and offices in scope follow ER-OQ-15.","Bureau contact","Medium","Blocked","Yes","ER-OQ-02, ER-OQ-15, ER-OQ-16","Signed in as Bureau contact > bureau view","","","",""
+"ER-BUR-02 – See stage and age without names","ER-BUR-02","Bureau view","As a bureau contact, I want to see the stage and age of my bureau's cases, so that I know cases are moving without seeing who is involved.","1. Given I open my bureau view, then I see a table of open cases with case number, case type, stage, a four-step progress marker, and days open.
+2. The page says that employee names and case details are not shown, and tells me to contact my ER/LR specialist for questions about a case.
+3. No employee name, case note, or other bureau's case appears.
+4. Whether to show the specialist's name or more detail follows ER-OQ-17.","Bureau contact","Medium","In Progress","No","ER-OQ-17","Bureau view page (as Bureau contact)","","","",""
+"ER-BUR-03 – Bureau summary cards","ER-BUR-03","Bureau view","As a bureau contact, I want summary counts for my bureau, so that I can see how many cases are open and how old they are.","1. Given I open my bureau view, then I see open cases, average age, cases over 180 days, and cases in the challenge period for my bureau only.
+2. The counts match the table on the page.
+3. The page shows when the data was last refreshed.","Bureau contact","Medium","In Progress","No","","Bureau view page > cards","","","",""
+"ER-BUR-04 – Open the view without access to the ER/LR site","ER-BUR-04","Bureau view","As a bureau contact, I want to open my bureau view with my normal DOC sign-in, without needing access to the ER/LR site, so that I only reach what I am allowed to see.","1. Given I am a bureau contact, then I open my view through a read-only report link with my normal DOC sign-in.
+2. I cannot open the ER/LR SharePoint site, its lists, or the Tyler Exports library.
+3. I cannot export underlying case data.
+4. My access starts only after security and privacy approval (ER-ACC-06).
+5. Whether the CHCO and bureau contacts can open reports in this way follows ER-OQ-03.","Bureau contact","Medium","Blocked","Yes","ER-OQ-03, ER-OQ-06","Signed in as Bureau contact (no SharePoint tabs)","","","",""
+"ER-BUR-05 – Preview any bureau's view","ER-BUR-05","Bureau view","As the CHCO or Program Manager, I want to see exactly what a bureau contact sees, so that I can check it before and after access is given.","1. Given I am the CHCO or Program Manager, then I can choose a bureau on the Bureau view page.
+2. The page shows what a contact at that bureau would see.
+3. Choosing a bureau does not change what any bureau contact sees.
+4. I can return to the dashboard from the page.","CHCO; ER/LR Program Manager","Medium","In Progress","No","","Bureau view page > Bureau picker (as CHCO or Program Manager)","","","",""
+"ER-SPC-01 – Open to my cases","ER-SPC-01","Specialist: My cases","As an ER/LR specialist, I want to open to a page of my own cases, so that I start each day with what is on my plate.","1. Given I sign in as a specialist, then I open to ""My cases"".
+2. The page shows my open cases, cases that need attention, cases I am covering, and data checks.
+3. The page lists only cases assigned to me, including cases I cover for a colleague.
+4. The page names the bureaus I service, taken from the data (ER-OQ-11).","ER/LR specialist","Medium","Backlog","No","ER-OQ-11","My cases page (signed in as specialist)","","","",""
+"ER-SPC-02 – Show cases that need attention first","ER-SPC-02","Specialist: My cases","As an ER/LR specialist, I want cases that need attention listed first, so that I deal with the oldest or incomplete ones.","1. Given I open My cases, then cases that are over 180 days or have a data check are listed first, then the rest, each oldest first.
+2. Each flagged case shows its flag (for example ""Over 180 days"").
+3. The ""Need attention"" count matches the flagged cases listed.
+4. The attention rule is days open and data checks only. Due dates by case type come later (ER-OQ-10).","ER/LR specialist","Medium","Backlog","No","ER-OQ-10","My cases page > table and flags","","","",""
+"ER-SPC-03 – See cases I cover for a colleague","ER-SPC-03","Specialist: My cases","As an ER/LR specialist, I want cases I cover for a colleague tagged, so that nothing is lost when someone is out.","1. Given I handle a case for another specialist's bureau, then it appears in my list with a tag ""Covering for [specialist]"".
+2. The ""Covering for a colleague"" count matches those cases.
+3. The same case shows as covered in the Program Manager's workload view (ER-PMW-01).
+4. How coverage is recorded in Tyler follows ER-OQ-13.","ER/LR specialist","Medium","Backlog","No","ER-OQ-13","My cases page > Covering tag and card","","","",""
+"ER-SPC-04 – Fix data gaps with data checks","ER-SPC-04","Specialist: My cases","As an ER/LR specialist, I want cases with missing data flagged, so that the reports are right.","1. Given a case is missing a required field (for example, the office is not selected), then it is flagged ""Check: [what is missing]"" on My cases.
+2. The ""Data checks"" count matches the flagged cases.
+3. Given I fix the case in Tyler, then the flag clears at the next refresh.
+4. The fields checked are agreed (ER-OQ-12).
+5. Closed cases with no outcome recorded are also flagged (ER-OUT-03).","ER/LR specialist","Medium","Backlog","No","ER-OQ-12","My cases page > Check tag and Data checks card","","","",""
